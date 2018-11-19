@@ -7,10 +7,36 @@ Whenever natural disaster occur it's important to deliver aid and assistance to 
 This project tries to explore how __machine learning__ can help organizations to make __better aid and assistance related decisions__, especially during and after natural disasters.
 
 ## Installation
-Despite standard libraries that come with the Anaconda distribution of Python you'll need ```sklearn```,```nltk``` and ```sqlalchemy``` for both model training and web app deployment. Also, you'll need ```flask``` and ```plotly``` in order to successfully run the app. For further information on packages and versions please see the ```r
-equirements.txt``` file in the repository.
+Despite standard libraries that come with the Anaconda distribution of Python you'll need ```sklearn```, ```nltk``` and ```sqlalchemy``` for both model training and web app deployment. Also, you'll need ```flask``` and ```plotly``` in order to successfully run the app. For further information on packages and versions please see the ```requirements.txt``` file in the repository.
 
 ## Files
+Files within this repository a separated into __three main groups__, namely:
+- ```app``` includes all files related to the web app's backend and frontend architecture
+- ```data``` includes all files related to the data used in the project
+- ```models``` includes all files related to model training as well as the trained model
+
+Despite that you can __use the following tree for orientation__:
+```
+- app
+| - template
+| |- master.html            # Main page of web app
+| |- go.html                # Classification result page of web app
+|- run.py                   # Flask file that runs app
+
+- data
+|- disaster_categories.csv  # Data to process 
+|- disaster_messages.csv    # Data to process
+|- process_data.py          # Data pre-processing
+|- disaster_response.db     # Database to save pre-processed data to
+
+- models
+|- train_classifier.py      # Model training
+|- classifier.pkl           # Saved model
+|- custom_transformer.py    # Custom transformer for sklearn pipeline
+
+- README.md
+- requirements.txt
+```
 
 ## Usage
 
