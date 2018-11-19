@@ -48,14 +48,20 @@ Data
 
 ### Training
 
-```python3 models/train_classifier.py data/DisasterResponse.db models/classifier.pkl```
+```$ python3 models/train_classifier.py data/DisasterResponse.db models/classifier.pkl```
 
 Class imbalance
 
 ### Deployment
 
-```python3 app/run.py```
+```$ python3 app/run.py```
 
-To cloud service
+Visit web app at ```http://0.0.0.0:3001/``` in local browser.
+
+### Features
+Screenshots
+
+Future Ideas:
+- Deployment to cloud service
 
 ## Acknowledgements
