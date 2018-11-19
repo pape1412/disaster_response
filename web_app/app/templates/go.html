@@ -1,0 +1,30 @@
+{% extends "master.html" %}
+{% block title %}Results{% endblock %}
+
+{% block message %}
+  {% if query|length > 0 %}
+    <h4 class="text-center mt-2">Message:</h4>
+    <p class="text-center mb-0"><i>{{query}}</i></p>
+    <hr />
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <div class="container p-0 rounded">
+    <h2 class="text-center p-0">Response Category</h2>
+    <div class="row justify-content-center">
+      {% for category, classification in classification_result.items() %}
+        {% if classification == 1 %}
+        <div class="col-2 alert alert-success ml-1 mr-1 mt-1 mb-1 p-2 text-center"
+             role="alert">{{category.replace('_', ' ').title()}}</div>
+        {% else %}
+        <div class="col-2 alert alert-secondary ml-1 mr-1 mt-1 mb-1 p-2 text-center"
+             role="alert">{{category.replace('_', ' ').title()}}</div>
+        {% endif %}
+        {% if loop.index % 5 == 0 %}
+        <div class="w-100"></div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
