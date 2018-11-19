@@ -15,7 +15,7 @@ Files within this repository a separated into __three main groups__, namely:
 - ```data``` includes all files related to the data used in the project
 - ```models``` includes all files related to model training as well as the trained model
 
-Despite that you can __use the following tree for orientation__:
+Despite that you can use __the following tree for orientation__ and additional explanation of files:
 ```
 - app
 | - template
@@ -39,6 +39,7 @@ Despite that you can __use the following tree for orientation__:
 ```
 
 ## Usage
+Eventhough this repository comes with all files needed to run the trained text classification model in a web app already, you're free to choose if you want to train a new model on the existing or a new message data set. Should you only be interested in deploying the web app for your purposes you can jump straight ahead to [__Deployment__]().
 
 ### Pre-Processing
 
