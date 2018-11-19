@@ -42,14 +42,19 @@ Despite that you can use __the following tree for orientation__ and additional e
 Eventhough this repository comes with all files needed to run the trained text classification model in a web app already, you're free to choose if you want to train a new model on the existing or a new message data set. Should you only be interested in deploying the web app for your purposes you can jump straight ahead to [__Deployment__]().
 
 ### Pre-Processing
-
 Data
 
+```$ python3 data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db```
+
 ### Training
+
+```python3 models/train_classifier.py data/DisasterResponse.db models/classifier.pkl```
 
 Class imbalance
 
 ### Deployment
+
+```python3 app/run.py```
 
 To cloud service
 
