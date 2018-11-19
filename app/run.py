@@ -2,19 +2,23 @@ import json
 import plotly
 import pandas as pd
 import sys
+import os
+import sys
 sys.path.append("models")
-
 from custom_transformer import tokenize
+
+#from models.custom_transformer import tokenize
 from flask import Flask
 from flask import render_template, request, jsonify
 from plotly.graph_objs import Bar
 from sklearn.externals import joblib
 from sqlalchemy import create_engine
 
+
 app = Flask(__name__)
 
 # Load data
-engine = create_engine('sqlite:///data/DisasterResponse.db')
+engine = create_engine('sqlite:///data/disaster_response.db')
 df = pd.read_sql_table('messages', engine)
 
 # Load model
@@ -137,7 +141,8 @@ def go():
 
 
 def main():
-    app.run(host='0.0.0.0', port=3001, debug=True)
+#    app.run(host='0.0.0.0', port=3001, debug=True)
+    app.run(debug=True)
 
     
 if __name__ == '__main__':
