@@ -7,7 +7,7 @@ Whenever natural disaster occur it's important to deliver aid and assistance to 
 This project tries to explore how __machine learning__ can help organizations to make __better aid and assistance related decisions__, especially during and after natural disasters.
 
 ## Installation
-Despite standard libraries that come with the Anaconda distribution of Python you'll need ```sklearn```, ```nltk``` and ```sqlalchemy``` for both model training and web app deployment. Also, you'll need ```flask``` and ```plotly``` in order to successfully run the app. For further information on packages and versions please see the ```requirements.txt``` file in the repository.
+Despite standard libraries that come with the Anaconda distribution of Python 3 you'll need ```sklearn```, ```nltk``` and ```sqlalchemy``` for both model training and web app deployment. Also, you'll need ```flask``` and ```plotly``` in order to successfully run the app. For further information on packages and versions please see the ```requirements.txt``` file in the repository.
 
 ## Files
 Files within this repository a separated into __three main groups__, namely:
@@ -44,7 +44,7 @@ Despite that you can use __the following tree for orientation__ and additional e
 ```
 
 ## Usage
-Eventhough this repository comes with all files needed to run the trained text classification model in a web app already, you're free to choose if you want to train a new model on the existing or a new message data set. Should you only be interested in deploying the web app for your purposes you can jump straight ahead to [Deployment](https://github.com/pape1412/disaster_response/blob/master/README.md#deployment).
+Eventhough this repository comes with all files needed to run the trained text classification model in a web app already, you're free to choose if you want to train a new model on the existing or a new message data set. Should you only be interested in deploying the web app for your purposes you can jump straight ahead to [Flask Web App](https://github.com/pape1412/disaster_response#flask-web-app).
 
 ### ETL Pipeline
 #### Data
@@ -55,7 +55,9 @@ The pre-processing is/was done within a __small ETL (Extract, Transform, Load) p
 ```
 $ python3 data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/disaster_response.db
 ```
-The command takes __three positional arguments__, namely both the paths to the messages and categories data sets as well as the path to a new SQLite database. The underlying ETL pipeline __loads__ the ```disaster_messages.csv``` and ```disaster_categories.csv``` data sets, __merges__ them together, __cleans__ the data (e.g. creation of category labels, removal of duplicates, ...) and then __stores__ a new data set at the given path in a SQLite database.
+The command takes __three positional arguments__, namely both the paths to the messages and categories data sets as well as the path to a new SQLite database.
+
+The underlying ETL pipeline __loads__ the ```disaster_messages.csv``` and ```disaster_categories.csv``` data sets, __merges__ them together, __cleans__ the data (e.g. creation of category labels, removal of duplicates, ...) and then __stores__ a new data set at the given path in a SQLite database.
 
 ### ML Pipeline
 #### Training
@@ -63,7 +65,9 @@ The machine learning pipeline includes all steps necessary to successfully train
 ```
 $ python3 models/train_classifier.py data/disaster_response.db models/classifier.pkl
 ```
-The ```train_classifier.py``` file takes the path to a SQLite database which stores the pre-processed disaster messages data as well the path to save the trained model to as __two positional arguments__. After loading the pre-processed data set from the SQLite database, it splits the data and sets up a text processing and machine learning pipeline with sklearn's ```Pipeline```, ```FeatureUnion``` and ```MultiOutputClassifier``` modules. It then runs a __randomized grid search with cross-validation__ of a medium sized parameter space for 10 iterations (trains only 10 different models instead of running a full search over the cartesian grid of parameters). Last but not least the pipeline finishes with an output of __model evaluation metrics__ and then __saves the best performing model__ to a ```.pkl``` file.
+The ```train_classifier.py``` file takes the path to a SQLite database which stores the pre-processed disaster messages data as well the path to save the trained model to as __two positional arguments__.
+
+After loading the pre-processed data set from the SQLite database, it splits the data and sets up a text processing and machine learning pipeline with sklearn's ```Pipeline```, ```FeatureUnion``` and ```MultiOutputClassifier``` modules. It then runs a __randomized grid search with cross-validation__ of a medium sized parameter space for 10 iterations (trains only 10 different models instead of running a full search over the cartesian grid of parameters). Last but not least the pipeline finishes with an output of __model evaluation metrics__ and then __saves the best performing model__ to a ```.pkl``` file.
 
 #### Evaluation
 Once the training process has finished you'll see an output of the models per class classification performance including __precision, recall and f1 score__. Choosing those measures over __accuracy__ is important as the data set used in this project suffers class imbalance across many of the message categories. Apart from that there are other reasons why focussing on those metrics is important:
@@ -80,13 +84,14 @@ The web app comes with one major functionality, namely the __classification of a
 ![Img 1](img/classification.png)
 
 The __navigation bar__ at the top of the app (Img 2) ...
+
 ![Img 2](img/navigation.png)
 
 ... gives you additional options such as getting an __overview of the training data__ (Img 3), visiting this __GitHub repository__ or connecting to disaster response organizations.
+
 ![Img 3](img/training_data.png)
 
-At the moment the web app is built to __run locally or a remote server__, but you could easily extend this to work on a cloud platform e.g. [Heroku](https://www.heroku.com)
-
+At the moment the web app is built to __run locally or a remote server__, but you could easily extend this to work on a cloud platform e.g. [Heroku](https://www.heroku.com).
 
 ## Acknowledgements
 I'd really like to thank [Figure Eight](https://www.figure-eight.com) for providing this data set. It's data sets like this one that give people the opportunity to work on data science and machine learning project with a true meaning and purpose.
