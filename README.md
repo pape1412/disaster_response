@@ -79,9 +79,10 @@ The web app comes with one major functionality, namely the __classification of a
 
 ![Img 1](img/classification.png)
 
-The __navigation bar__ at the top of the app (Img 2) gives you additional options such as getting an __overview of the training data__ (Img 3), visiting this __GitHub repository__ or connecting to disaster response organizations.
-
+The __navigation bar__ at the top of the app (Img 2) ...
 ![Img 2](img/navigation.png)
+
+... gives you additional options such as getting an __overview of the training data__ (Img 3), visiting this __GitHub repository__ or connecting to disaster response organizations.
 ![Img 3](img/training_data.png)
 
 At the moment the web app is built to __run locally or a remote server__, but you could easily extend this to work on a cloud platform e.g. [Heroku](https://www.heroku.com)
