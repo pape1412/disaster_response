@@ -39,6 +39,10 @@ Despite that you can use __the following tree for orientation__ and additional e
 |- classifier.pkl           # Saved model
 |- custom_transformer.py    # Custom transformer for sklearn pipeline
 
+- notebooks
+|- etl_pipeline.ipynb       # Jupyter notebook for ETL pipeline developmet
+|- ml_pipeline.ipynb        # Jupyter notebook for ML pipeline developmet
+
 - README.md
 - requirements.txt
 ```
