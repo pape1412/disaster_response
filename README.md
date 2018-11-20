@@ -75,7 +75,7 @@ Once the training process has finished you'll see an output of the models per cl
 - At the same time they want to capture __as many important messages as possible__, so everyone in need gets aid an assistance (recall). 
 
 ### Flask Web App
-If you're interested in seeing the trained disaster response classification model in action you can simply __run the web app__ in this repository by executing the following command in the terminal and then visiting ```http://0.0.0.0:3001/``` in your local browser.
+If you're interested in seeing the trained disaster response classification model in action you can simply __run the web app__ in this repository by executing the following command from the __main folder__ and then visiting ```http://0.0.0.0:3001/``` in your local browser.
 ```
 $ python3 app/run.py
 ```
