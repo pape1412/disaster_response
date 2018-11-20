@@ -96,7 +96,7 @@ def build_model():
     }
 
     # Create cross validation object for randomized grid search
-    cv = RandomizedSearchCV(pipeline, param_distributions=parameters, cv=3, n_iter=2)
+    cv = RandomizedSearchCV(pipeline, param_distributions=parameters, cv=3, n_iter=10)
     
     return cv
 
