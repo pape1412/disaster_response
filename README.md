@@ -41,24 +41,31 @@ Despite that you can use __the following tree for orientation__ and additional e
 ## Usage
 Eventhough this repository comes with all files needed to run the trained text classification model in a web app already, you're free to choose if you want to train a new model on the existing or a new message data set. Should you only be interested in deploying the web app for your purposes you can jump straight ahead to [__Deployment__](https://github.com/pape1412/disaster_response/blob/master/README.md#deployment).
 
-### Pre-Processing
-Data
+### ETL Pipeline
+The data that's being used in this project comes from __two disaster messages data sets__ provided by [Figure Eight](https://www.figure-eight.com). Both of these data sets require additional pre-procsessing steps in order to be used for training a model. This job is done within a __small ETL (Extract, Transform, Load) pipeline__, that loads the ```disaster_messages.csv``` and ```disaster_categories.csv``` data sets, merges them together, cleans the data (e.g. creation of category labels, removal of duplicates, ...) and then stores a new data set in a SQLite database.
 
-```$ python3 data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db```
+Should you wish to re-run these pre-processing steps with a new or the existing data set you can do so by __executing the following line__ from the main folder:
+```
+$ python3 data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db
+```
+The command takes __three positional arguments__, namely both the paths to the messages and categories data sets as well as the path to a new SQLite database.
 
-### Training
+### ML Pipeline
 
-```$ python3 models/train_classifier.py data/DisasterResponse.db models/classifier.pkl```
+```
+$ python3 models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
+```
 
 Class imbalance
 
-### Deployment
+### Flask Web App
 
-```$ python3 app/run.py```
+```
+$ python3 app/run.py
+```
 
 Visit web app at ```http://0.0.0.0:3001/``` in local browser.
 
-### Features
 Screenshots
 
 Future Ideas:
