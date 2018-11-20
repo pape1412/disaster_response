@@ -40,8 +40,8 @@ Despite that you can use __the following tree for orientation__ and additional e
 |- custom_transformer.py    # Custom transformer for sklearn pipeline
 
 - notebooks
-|- etl_pipeline.ipynb       # Jupyter notebook for ETL pipeline developmet
-|- ml_pipeline.ipynb        # Jupyter notebook for ML pipeline developmet
+|- etl_pipeline.ipynb       # Jupyter notebook for ETL pipeline development
+|- ml_pipeline.ipynb        # Jupyter notebook for ML pipeline development
 
 - README.md
 - requirements.txt
