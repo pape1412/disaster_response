@@ -79,15 +79,15 @@ If you're interested in seeing the trained disaster response classification mode
 ```
 $ python3 app/run.py
 ```
-The web app comes with one major functionality, namely the __classification of appropriate disaster response categories__ based on disaster messages (Img 1). By entering a message and clicking "_Classify Now_" you will see related response categories lighting up in green.
+The web app comes with one major functionality, namely the __classification of appropriate disaster response categories__ based on disaster messages. By entering a message and clicking "_Classify Now_" you will see related response categories lighting up in green.
 
 ![Img 1](img/classification.png)
 
-The __navigation bar__ at the top of the app (Img 2) ...
+The __navigation bar__ at the top of the app ...
 
 ![Img 2](img/navigation.png)
 
-... gives you additional options such as getting an __overview of the training data__ (Img 3), visiting this __GitHub repository__ or connecting to disaster response organizations.
+... gives you additional options such as getting an __overview of the training data__, visiting this __GitHub repository__ or connecting to disaster response organizations.
 
 ![Img 3](img/training_data.png)
 
