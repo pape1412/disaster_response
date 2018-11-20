@@ -29,6 +29,11 @@ Despite that you can use __the following tree for orientation__ and additional e
 |- process_data.py          # Data pre-processing
 |- disaster_response.db     # Database to save pre-processed data to
 
+- img
+|- classification.png       # Screenshot of classification feature
+|- navigation.png           # Screenshot of navigation bar
+|- training_data.png        # Screenshot of overview of training data
+
 - models
 |- train_classifier.py      # Model training
 |- classifier.pkl           # Saved model
