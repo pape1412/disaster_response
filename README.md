@@ -75,12 +75,18 @@ If you're interested in seeing the trained disaster response classification mode
 ```
 $ python3 app/run.py
 ```
+The web app comes with one major functionality, namely the __classification of appropriate disaster response categories__ based on disaster messages (Img 1). By entering a message and clicking "_Classify Now_" you will see related response categories lighting up in green.
 
-Visit web app at .
+![Img 1](img/classification.png)
 
-Screenshots
+The __navigation bar__ at the top of the app (Img 2) gives you additional options such as getting an __overview of the training data__ (Img 3), visiting this __GitHub repository__ or connecting to disaster response organizations.
 
-Future Ideas:
-- Deployment to cloud service
+![Img 2](img/navigation.png)
+![Img 3](img/training_data.png)
+
+At the moment the web app is built to __run locally or a remote server__, but you could easily extend this to work on a cloud platform e.g. [Heroku](https://www.heroku.com)
+
 
 ## Acknowledgements
+I'd really like to thank [Figure Eight](https://www.figure-eight.com) for providing this data set. It's data sets like this one that give people the opportunity to work on data science and machine learning project with a true meaning and purpose.
+__Please be aware__ that this data set was provided in [Udacity's Data Scientist Nanodegree Program](https://eu.udacity.com/course/data-scientist-nanodegree--nd025) so it may not be free for everyone to use.
