@@ -43,36 +43,35 @@ Eventhough this repository comes with all files needed to run the trained text c
 
 ### ETL Pipeline
 #### Data
-The data that's being used in this project comes from __two disaster messages data sets__ provided by [Figure Eight](https://www.figure-eight.com). Both of these data sets require additional pre-procsessing steps in order to be used for training a model.
+The data that's being used in this project comes from __two disaster messages data sets__ provided by [Figure Eight](https://www.figure-eight.com). Both of these data sets require additional pre-procsessing steps in order to be used for training a model. After pre-processing, the data set contains __26,028 different messages__ across __35 different disaster reponse categories__ (one category was removed due to zero variance).
 
 #### Pre-Processing
-The pre-processing is done within a __small ETL (Extract, Transform, Load) pipeline__, that loads the ```disaster_messages.csv``` and ```disaster_categories.csv``` data sets, merges them together, cleans the data (e.g. creation of category labels, removal of duplicates, ...) and then stores a new data set in a SQLite database.
-
-Should you wish to re-run these pre-processing steps with a new or the existing data set you can do so by __executing the following line__ from the main folder:
+The pre-processing is/was done within a __small ETL (Extract, Transform, Load) pipeline__. Should you wish to re-run these pre-processing steps with a new or the existing data set you can do so by __executing the following line__ from the __main folder__:
 ```
-$ python3 data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db
+$ python3 data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/disaster_response.db
 ```
-The command takes __three positional arguments__, namely both the paths to the messages and categories data sets as well as the path to a new SQLite database.
+The command takes __three positional arguments__, namely both the paths to the messages and categories data sets as well as the path to a new SQLite database. The underlying ETL pipeline __loads__ the ```disaster_messages.csv``` and ```disaster_categories.csv``` data sets, __merges__ them together, __cleans__ the data (e.g. creation of category labels, removal of duplicates, ...) and then __stores__ a new data set at the given path in a SQLite database.
 
 ### ML Pipeline
 #### Training
-The machine learning pipeline includes all steps necessary to successfully train a __multi-label disaster response classification model__. After loading the pre-processed data set from the SQLite database, it splits the data and sets up a text processing and machine learning pipeline with sklearn's ```Pipeline```, ```FeatureUnion``` and ```MultiOutputClassifier``` modules. It then runs a randomized grid search with cross-validation of a medium sized parameter space for 10 iterations (trains only 10 different models instead of running a full search over the cartesian grid of parameters). Last but not least the pipeline finishes with an output of model evaluation metrics and then saves the best performing model to a ```.pkl``` file.
+The machine learning pipeline includes all steps necessary to successfully train a __multi-label disaster response classification model__. Eventhough you find a trained classification model under the ```models``` folder, you may also choose to (re-)train your own model by running the following command from the main folder:
+```
+$ python3 models/train_classifier.py data/disaster_response.db models/classifier.pkl
+```
+The ```train_classifier.py``` file takes the path to a SQLite database which stores the pre-processed disaster messages data as well the path to save the trained model to as __two positional arguments__. After loading the pre-processed data set from the SQLite database, it splits the data and sets up a text processing and machine learning pipeline with sklearn's ```Pipeline```, ```FeatureUnion``` and ```MultiOutputClassifier``` modules. It then runs a __randomized grid search with cross-validation__ of a medium sized parameter space for 10 iterations (trains only 10 different models instead of running a full search over the cartesian grid of parameters). Last but not least the pipeline finishes with an output of __model evaluation metrics__ and then __saves the best performing model__ to a ```.pkl``` file.
 
-Eventhough you find a trained classification model Again, should you wish to re-train the model you can
-```
-$ python3 models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
-```
 #### Evaluation
-Class imbalance
+Once the training process has finished you'll see an output of the models per class classification performance including __precision, recall and f1 score__. Choosing those measures over __accuracy__ is important as the data set used in this project suffers class imbalance across many of the message categories. Apart from that there are other reasons why focussing on those metrics is important:
+- For organizations it remains crucial to identify those __messages that are actually related to a disaster__, so they don't in focus their work on anything unrelated (precision).
+- At the same time they want to capture __as many important messages as possible__, so everyone in need gets aid an assistance (recall). 
 
 ### Flask Web App
-Finally, you can use the pre-processed data as well as the trained disaster response classification model in a simple web app.
-
+If you're interested in seeing the trained disaster response classification model in action you can simply __run the web app__ in this repository by executing the following command in the terminal and then visiting ```http://0.0.0.0:3001/``` in your local browser.
 ```
 $ python3 app/run.py
 ```
 
-Visit web app at ```http://0.0.0.0:3001/``` in local browser.
+Visit web app at .
 
 Screenshots
 
