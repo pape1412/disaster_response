@@ -98,5 +98,4 @@ The __navigation bar__ at the top of the app ...
 At the moment the web app is built to __run locally or a remote server__, but you could easily extend this to work on a cloud platform e.g. [Heroku](https://www.heroku.com).
 
 ## Acknowledgements
-I'd really like to thank [Figure Eight](https://www.figure-eight.com) for providing this data set. It's data sets like this one that give people the opportunity to work on data science and machine learning projects with a true meaning and purpose.
-__Please be aware__ that this data set was provided in [Udacity's Data Scientist Nanodegree Program](https://eu.udacity.com/course/data-scientist-nanodegree--nd025) so it may not be free for everyone to use.
+This mini project is one of the projects I've worked on during my Data Scientist Nanodegree programm at [Udacity](https://eu.udacity.com/course/data-scientist-nanodegree--nd025). __Please note:__ As this data set was provided by [Figure Eight](https://www.figure-eight.com) during the pogramm it may not be free for everyone to use.
